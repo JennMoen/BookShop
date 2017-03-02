@@ -1,0 +1,28 @@
+<h2>My books</h2>
+<p>
+    {{controller.message}}
+</p>
+
+
+<div ng-repeat="book in controller.books" ui-sref="bookDetail({id: book.id})" class="col-md-3">
+    <h4>
+        {{book.title}}
+    </h4>
+    <div>
+        {{book.author}}
+        {{book.price|currency}}
+    </div>
+    <div>
+        <img ng-src="{{book.bookUrl}}" class="img-responsive img-rounded"/>
+    </div>
+</div>
+
+<form ng-submit="controller.saveBook(book)">
+    <div>
+        <input type="text" ng-model="controller.book.title" placeholder="Title" />
+        <input type="text" ng-model="controller.book.author" placeholder="author" />
+        <input type="text" ng-model="controller.book.price" placeholder="price" />
+        <input type="text" ng-model="controller.book.bookUrl" placeholder="book image" />
+        <input type="submit" value="Add Book" />
+    </div>
+</form>

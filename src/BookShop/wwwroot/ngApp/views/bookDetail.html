@@ -1,0 +1,23 @@
+﻿<h1>Book Details Page</h1>
+<div class="col-md-6">
+    <div>
+        {{controller.book.title}}
+        {{controller.book.author}}
+        {{controller.book.price|currency}}
+    </div>
+        <img ng-src="{{controller.book.bookUrl}}" />
+    <input type="button" value="Delete Book" ng-click="controller.deleteBook(book.id)" />
+</div>
+
+<div class="col-md-3">
+    <h3>Edit Book Details</h3>
+    <form ng-submit="controller.editBook(book)">
+        <div>
+            <input type="text" ng-model="controller.book.title" />
+            <input type="text" ng-model="controller.book.author" />
+            <input type="text" ng-model="controller.book.price" />
+            <input type="text" ng-model="controller.book.bookUrl" />
+        </div>
+        <input type="submit" value="Update Book" />
+    </form>
+</div>

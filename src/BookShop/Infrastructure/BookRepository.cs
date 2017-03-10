@@ -35,7 +35,7 @@ namespace BookShop.Infrastructure
 
         //add a book (duh)
         public void AddBook(Book book, string user)
-        {
+        { 
             _db.Books.Add(book);
             _db.SaveChanges();
         }

@@ -4,15 +4,17 @@ namespace BookShop.Controllers {
         public message = 'Here are a bunch of your books!';
         public books;
         public book;
+        public testBooks;
 
         constructor(private $http: ng.IHttpService, private $state: ng.ui.IStateService) {
             $http.get('/api/books').then((results) => {
                 this.books = results.data;
             });
-
+            //this.testBooks = ["Book1", "Book2", "Book3"];
         }
 
         public saveBook(book) {
+            //swapping out this.book for book in the post
             this.$http.post('/api/books', this.book).then((results) => {
                 this.$state.reload();
             })
@@ -25,12 +27,14 @@ namespace BookShop.Controllers {
 
 
     export class SecretController {
-        public secrets;
+        public users;
 
         constructor($http: ng.IHttpService) {
-            $http.get('/api/secrets').then((results) => {
-                this.secrets = results.data;
+            $http.get('/api/users').then((results) => {
+                this.users = results.data;
             });
+            //this.users = ["bob", "jim", "joe", "jen", "jill"];
+
         }
     }
 

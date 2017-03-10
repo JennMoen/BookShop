@@ -28,7 +28,8 @@ namespace BookShop.Services
                         Author= b.Author,
                         Title = b.Title,
                         BookUrl = b.BookUrl,
-                        Price = b.Price
+                        Price = b.Price,
+                        UserName = b.User.UserName
                         
                     }).ToList();
         }

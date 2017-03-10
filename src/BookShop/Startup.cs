@@ -56,9 +56,11 @@ namespace BookShop
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
 
+            //add your services and repositories here
             services.AddScoped<UserRepository>();
             services.AddScoped<BookRepository>();
             services.AddScoped<BookService>();
+            services.AddScoped<UserService>();
             
                         // add security policies
                         services.AddAuthorization(options =>

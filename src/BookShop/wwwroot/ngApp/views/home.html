@@ -4,7 +4,7 @@
 </p>
 
 
-<div ng-repeat="book in controller.books" ui-sref="bookDetail({id: book.id})" class="col-md-3">
+<div ng-repeat="book in controller.books" ui-sref="bookDetail({id: book.id})" class="col-md-4">
     <h4>
         {{book.title}}
     </h4>
@@ -12,11 +12,19 @@
         {{book.author}}
         {{book.price|currency}}
     </div>
-    <div>
-        <img ng-src="{{book.bookUrl}}" class="img-responsive img-rounded"/>
+    <div style="width: 300px">
+        <img ng-src="{{book.bookUrl}}" class="img-responsive img-rounded " style="width: 100%"/>
     </div>
 </div>
-
+<!--<form ng-submit="controller.saveBook(book)">
+<select ng-model="controller.book.title">
+    <option ng-repeat="b in controller.testBooks" value="{{b}}">
+        {{b}}
+    </option>
+</select>
+    <input type="submit" value="save" />
+</form>-->
+<!--<h4>You chose: {{controller.book.title}}</h4>-->
 <form ng-submit="controller.saveBook(book)">
     <div>
         <input type="text" ng-model="controller.book.title" placeholder="Title" />

@@ -17,7 +17,7 @@ namespace BookShop.Controllers {
 
         public logout() {
             this.accountService.logout();
-            this.$location.path('/');
+            this.$location.path('/login');
         }
 
         public getExternalLogins() {
@@ -40,7 +40,12 @@ namespace BookShop.Controllers {
 
         public login() {
             this.accountService.login(this.loginUser).then(() => {
-                this.$location.path('/');
+                if (this.accountService.getClaim('IsAdmin')) {
+                    this.$location.path('/secret');
+                }
+                else {
+                    this.$location.path('/');
+                }
             }).catch((results) => {
                 this.validationMessages = results;
             });
@@ -56,7 +61,7 @@ namespace BookShop.Controllers {
 
         public register() {
             this.accountService.register(this.registerUser).then(() => {
-                this.$location.path('/');
+                this.$location.path('/about');
             }).catch((results) => {
                 this.validationMessages = results;
             });

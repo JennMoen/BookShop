@@ -3,6 +3,8 @@
     <title>BookShop</title>
     <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://bootswatch.com/darkly/bootstrap.min.css" />
+    <link href="~/css/site.css" rel="stylesheet" />
     <base href="/" />
 </head>
 <body ng-controller="AccountController as account">
@@ -16,8 +18,9 @@
            <a href="/login" ng-show="!account.isLoggedIn()">Login</a>
            <a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a>
            <div ng-show="account.isLoggedIn()">
-               [{{account.getUserName()}}]
+            Hello, {{account.getUserName()}}. Here are the books you're interested in.
            </div> 
+            <div ng-show="!account.isLoggedIn()">Log in to store your own damn books.</div>
         </div>
         <hr />
 

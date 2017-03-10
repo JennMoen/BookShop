@@ -25,7 +25,11 @@ namespace BookShop.Infrastructure
                    select u;
         }
 
-
+        public IQueryable<ApplicationUser> AdminViewUsers()
+        {
+            return from u in _db.Users
+                   select u;
+        }
 
     }
 }
